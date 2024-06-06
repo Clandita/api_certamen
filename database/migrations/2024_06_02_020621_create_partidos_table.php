@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('partidos', function (Blueprint $table) {
             $table->id();
             $table->dateTime('hora');
+            $table->boolean('jugado')->nullable()->default(false);
             $table->string('lugar',30);
             $table->unsignedBigInteger('campeonato_id');
             $table->foreign('campeonato_id')->references('id')->on('campeonatos');

@@ -16,11 +16,11 @@ class partidosSeeder extends Seeder
     public function run()
     {
         DB::table('partidos')->insert([
-        ['hora' => '2024-06-01 14:00:00', 'lugar' => 'Estadio Apex Legends', 'campeonato_id' => '1'],
-        ['hora' => '2024-06-01 16:30:00', 'lugar' => 'Arena del Ancestro', 'campeonato_id' => '2'],
-        ['hora' => '2024-06-01 18:00:00', 'lugar' => 'Vanguard Arena', 'campeonato_id' => '3'],
-        ['hora' => '2024-06-01 20:00:00', 'lugar' => 'Estadio Rocket', 'campeonato_id' => '4'],
-        ['hora' => '2024-06-01 12:00:00', 'lugar' => 'Taverna Hearthstone', 'campeonato_id' => '5'],
-        ]);
+            ['hora' => '2024-06-01 14:00:00','jugado'=>true, 'lugar' => 'Estadio Apex Legends', 'campeonato_id' => '1'],
+            ['hora' => '2024-06-01 16:30:00','jugado'=>false, 'lugar' => 'Arena del Ancestro', 'campeonato_id' => '2'],
+            ['hora' => '2024-06-01 18:00:00','jugado'=>false, 'lugar' => 'Vanguard Arena', 'campeonato_id' => '3'],
+            ['hora' => '2024-06-01 20:00:00','jugado'=>false, 'lugar' => 'Estadio Rocket', 'campeonato_id' => '4'],
+            ['hora' => '2024-06-01 12:00:00','jugado'=>false, 'lugar' => 'Taverna Hearthstone', 'campeonato_id' => '5'],
+            ]);
     }
 }

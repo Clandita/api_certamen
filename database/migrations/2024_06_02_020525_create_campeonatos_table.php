@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('campeonatos', function (Blueprint $table) {
             $table->id();
+            $table->string('juego');
             $table->string('nombre',40);
             $table->string('reglas');
             $table->string('premios');

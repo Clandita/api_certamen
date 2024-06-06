@@ -14,7 +14,7 @@ class CampeonatosController extends Controller
      */
     public function index()
     {
-        $campeonatos= Campeonato::orderBy('nombre')->get();
+        $campeonatos= Campeonato::orderBy('id')->get();
         return $campeonatos;
     }
 
