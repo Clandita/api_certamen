@@ -86,6 +86,6 @@ class PartidosController extends Controller
      */
     public function destroy(Partido $partido)
     {
-        //
+        return $piloto->delete();
     }
 }

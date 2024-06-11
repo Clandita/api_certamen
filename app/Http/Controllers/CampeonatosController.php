@@ -81,7 +81,7 @@ class CampeonatosController extends Controller
      */
     public function destroy(Campeonato $campeonato)
     {
-        //
+        return $campeonato->delete();
     }
 
     public function equiposPorCampeonato($campeonato_id)

@@ -85,6 +85,6 @@ class JugadoresController extends Controller
      */
     public function destroy(Jugador $jugador)
     {
-        //
+        return $jugador->delete();
     }
 }

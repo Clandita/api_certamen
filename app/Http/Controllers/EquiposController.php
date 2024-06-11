@@ -81,6 +81,6 @@ class EquiposController extends Controller
      */
     public function destroy(Equipo $equipo)
     {
-        //
+        return $equipo->delete();
     }
 }
