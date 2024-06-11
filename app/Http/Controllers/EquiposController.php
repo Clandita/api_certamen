@@ -36,7 +36,11 @@ class EquiposController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $equipo=new Equipo();
+        $equipo->nombre=$request->nombre;
+        $equipo->descripcion=$request->descripcion;
+        $equipo->save();
+        return $equipo;
     }
 
     /**

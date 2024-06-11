@@ -36,7 +36,13 @@ class CampeonatosController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $campeonato=new Campeonato();
+        $campeonato->juego=$request->juego;
+        $campeonato->nombre=$request->nombre;
+        $campeonato->reglas=$request->reglas;
+        $campeonato->premios=$request->premios;
+        $campeonato->save();
+        return $campeonato;
     }
 
     /**
