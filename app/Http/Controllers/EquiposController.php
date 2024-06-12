@@ -88,12 +88,12 @@ class EquiposController extends Controller
  */
 
 
-    public function update(Request $request)
+    public function update(Request $request, Equipo $equipo)
     {
-        $equipo=Equipo::where('id',$request->id) ->first();
         $equipo->nombre = $request->nombre;
         $equipo->descripcion = $request->descripcion;
         $equipo->save();
+
         return $equipo;
 
     }
