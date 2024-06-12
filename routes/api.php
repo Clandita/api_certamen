@@ -28,6 +28,10 @@ Route::resource('/campeonatos',CampeonatosController::class);
 Route::resource('/partidos',PartidosController::class);
 Route::resource('/resultados',ResultadosController::class);
 Route::get('campeonatos/{id}/equipos', [CampeonatosController::class, 'equiposPorCampeonato']);
+<<<<<<< HEAD
 Route::get('/equipos/{equipo}/edit', [EquiposController::class, 'edit'])->name('equipos.edit');
 
 
+=======
+Route::get('/jugadores/{rut}', [JugadoresController::class, 'buscarRut']);
+>>>>>>> 4ce663312248f19916ede80347d4301870e3fc57
