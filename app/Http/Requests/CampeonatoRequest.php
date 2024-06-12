@@ -26,8 +26,8 @@ class CampeonatoRequest extends FormRequest
         return [
             'nombre' => ['required', 'alpha', 'min:3', 'max:40'],
             'juego' => ['required','string','min:3'],
-            'reglas' => ['string',],
-            'premios' => ['string']
+            'reglas' => ['required','string',],
+            'premios' => ['required','string']
         ];
     }
 
@@ -38,6 +38,9 @@ class CampeonatoRequest extends FormRequest
             'nombre.alpha' => 'Ingrese solo Letras',
             'nombre.min'=> 'Ingrese mínimo 3 letras',
             'nombre.max'=> 'Ingrese máximo 40 letras',
+            'juego.required' => 'Indique el juego',
+            'juego.string' => 'Ingrese un nombre válido para el juego',
+            'juego.min' => 'Ingrese mínimo 3 letras para el juego',
         ];
     }
 }

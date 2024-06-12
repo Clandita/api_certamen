@@ -36,13 +36,18 @@ class CampeonatosController extends Controller
      */
     public function store(Request $request)
     {
-        $campeonato=new Campeonato();
-        $campeonato->juego=$request->juego;
-        $campeonato->nombre=$request->nombre;
-        $campeonato->reglas=$request->reglas;
-        $campeonato->premios=$request->premios;
-        $campeonato->save();
-        return $campeonato;
+        try {
+            $campeonato = new Campeonato();
+            $campeonato->juego = $request->juego;
+            $campeonato->nombre = $request->nombre;
+            $campeonato->reglas = $request->reglas;
+            $campeonato->premios = $request->premios;
+            $campeonato->save();
+
+            return response()->json(['message' => 'Campeonato creado exitosamente', 'data' => $campeonato], 201);
+        } catch (\Exception $e) {
+            return response()->json(['message' => 'Error', 'errors' => ['general' => [$e->getMessage()]]], 500);
+        }
     }
 
     /**

@@ -34,13 +34,18 @@ class EquiposController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(EquipoRequest $request)
     {
-        $equipo=new Equipo();
-        $equipo->nombre=$request->nombre;
-        $equipo->descripcion=$request->descripcion;
-        $equipo->save();
-        return $equipo;
+        try {
+            $equipo = new Equipo();
+            $equipo->nombre = $request->nombre;
+            $equipo->descripcion = $request->descripcion;
+            $equipo->save();
+
+            return response()->json(['message' => 'Equipo creado exitosamente', 'data' => $equipo], 201);
+        } catch (\Exception $e) {
+            return response()->json(['message' => 'Error', 'errors' => ['general' => [$e->getMessage()]]], 500);
+        }
     }
 
     /**
@@ -61,9 +66,11 @@ class EquiposController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit(Equipo $equipo)
-    {
-        //
-    }
+{
+    return response()->json($equipo, 200);
+}
+
+
 
     /**
      * Update the specified resource in storage.
@@ -72,10 +79,18 @@ class EquiposController extends Controller
      * @param  \App\Models\Equipo  $equipo
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Equipo $equipo)
-    {
-        //
-    }
+    /**
+ * Update the specified resource in storage.
+ *
+ * @param  \Illuminate\Http\Request  $request
+ * @param  \App\Models\Equipo  $equipo
+ * @return \Illuminate\Http\Response
+ */
+public function update(Request $request, Equipo $equipo)
+{
+    
+}
+
 
     /**
      * Remove the specified resource from storage.
