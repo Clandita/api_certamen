@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('apellido',20);
             $table->string('nickname',20);
             $table->unsignedBigInteger('equipo_id');
-            $table->foreign('equipo_id')->references('id')->on('equipos');
+            $table->foreign('equipo_id')->references('id')->on('equipos')->onDelete('cascade');
 
             $table->timestamps();
         });

@@ -86,6 +86,7 @@ class CampeonatosController extends Controller
         $campeonato->reglas = $request->reglas;
         $campeonato->premios = $request->premios;
         $campeonato->save();
+        return $campeonato;
     }
 
     /**

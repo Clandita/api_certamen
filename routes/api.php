@@ -27,10 +27,16 @@ Route::resource('/jugadores',JugadoresController::class);
 Route::resource('/campeonatos',CampeonatosController::class);
 Route::resource('/partidos',PartidosController::class);
 Route::resource('/resultados',ResultadosController::class);
+
+
 Route::get('campeonatos/{id}/equipos', [CampeonatosController::class, 'equiposPorCampeonato']);
+
+
 Route::put('/jugadores', [JugadoresController::class, 'update']);
 Route::put('/equipos', [EquiposController::class, 'update']);
-Route::resource('/campeonatos', CampeonatosController::class);
+Route::put('/campeonatos',[CampeonatosController::class, 'update']);
+
+Route::delete('/jugadores', [JugadoresController::class, 'destroy']);
 
 
 
