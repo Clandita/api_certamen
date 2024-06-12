@@ -28,13 +28,8 @@ Route::resource('/campeonatos',CampeonatosController::class);
 Route::resource('/partidos',PartidosController::class);
 Route::resource('/resultados',ResultadosController::class);
 Route::get('campeonatos/{id}/equipos', [CampeonatosController::class, 'equiposPorCampeonato']);
-<<<<<<< Updated upstream
+Route::put('/jugadores', [JugadoresController::class, 'update']);
 Route::put('/equipos', [EquiposController::class, 'update']);
 
 
 
-=======
-Route::get('/equipos/{equipo}/edit', [EquiposController::class, 'edit'])->name('equipos.edit');
-
-Route::put('/jugadores', [JugadoresController::class, 'update']);
->>>>>>> Stashed changes
