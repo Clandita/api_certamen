@@ -41,7 +41,15 @@ class PartidosController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $partido=new Partido();
+        $partido->id=$request->id;
+        $partido->hora=$request->hora;
+        $partido->jugado=$request->jugado;
+        $partido->lugar=$request->lugar;
+        $partido->campeonato_id=$request->campeonato_id;
+        
+        $partido->save();
+        return $partido;
     }
 
     /**
