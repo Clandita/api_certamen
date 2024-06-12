@@ -14,23 +14,19 @@ class JugadoresController extends Controller
      */
     public function index(Request $request)
     {
-        if ($request->has('equipo_id')) {
-            $jugadores = Jugador::where('equipo_id', $request->equipo_id)->get();
-       }   else {
-            $jugadores = Jugador::all();}
-
-        return $jugadores;
-    }
-
-    public function buscarRut(Request $request)
-    {
         if ($request->has('rut')) {
             $jugadores = Jugador::where('rut', $request->rut)->get();
-       }   else {
+       }   
+       if ($request->has('equipo_id')) {
+        $jugadores = Jugador::where('equipo_id', $request->equipo_id)->get();
+   }
+       else {
             $jugadores = Jugador::all();}
 
         return $jugadores;
     }
+
+
 
 
     /**
@@ -81,28 +77,19 @@ class JugadoresController extends Controller
      */
     public function edit(Jugador $jugador)
     {
-        return response()->json([
-            'data' => $jugador,
-        ], 200);
     }
 
     
-    public function update(Request $request, Jugador $jugador)
-    {      
-        $validatedData = $request->validate([
-            'nombre' => 'required|string|max:40',
-            'apellido' => 'string|max:40',
-            'nickname' => 'string',
-        ]);
-
-       
-        $jugador->update($validatedData);
-
+    public function update(Request $request)
+    {   
+        $jugador = Jugador::where('rut', $request->rut)->first();   
+        $jugador->nombre=$request->nombre;
+        $jugador->apellido=$request->apellido;
+        $jugador->rut=$request->rut;
+        $jugador->nickname=$request->nickname;
         
-        return response()->json([
-            'message' => 'Jugador actualizado exitosamente',
-            'data' => $jugador,
-        ], 200);
+        $jugador->save();
+        return $jugador;
     }
 
     /**
