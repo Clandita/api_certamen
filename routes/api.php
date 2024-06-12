@@ -30,6 +30,8 @@ Route::resource('/resultados',ResultadosController::class);
 Route::get('campeonatos/{id}/equipos', [CampeonatosController::class, 'equiposPorCampeonato']);
 Route::put('/jugadores', [JugadoresController::class, 'update']);
 Route::put('/equipos', [EquiposController::class, 'update']);
+Route::resource('/campeonatos', CampeonatosController::class);
+
 
 
 

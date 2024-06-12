@@ -95,9 +95,15 @@ class CampeonatosController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy(Campeonato $campeonato)
-    {
-        return $campeonato->delete();
+{
+    try {
+        $campeonato->delete();
+        return response()->json(['message' => 'Campeonato eliminado exitosamente'], 200);
+    } catch (\Exception $e) {
+        return response()->json(['message' => 'Error', 'errors' => ['general' => [$e->getMessage()]]], 500);
     }
+}
+
 
     public function equiposPorCampeonato($campeonato_id)
     {
