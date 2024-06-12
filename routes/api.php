@@ -28,3 +28,4 @@ Route::resource('/campeonatos',CampeonatosController::class);
 Route::resource('/partidos',PartidosController::class);
 Route::resource('/resultados',ResultadosController::class);
 Route::get('campeonatos/{id}/equipos', [CampeonatosController::class, 'equiposPorCampeonato']);
+Route::get('/jugadores/{rut}', [JugadoresController::class, 'buscarRut']);

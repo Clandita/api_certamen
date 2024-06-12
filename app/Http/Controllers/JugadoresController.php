@@ -22,6 +22,17 @@ class JugadoresController extends Controller
         return $jugadores;
     }
 
+    public function buscarRut(Request $request)
+    {
+        if ($request->has('rut')) {
+            $jugadores = Jugador::where('rut', $request->rut)->get();
+       }   else {
+            $jugadores = Jugador::all();}
+
+        return $jugadores;
+    }
+
+
     /**
      * Show the form for creating a new resource.
      *
@@ -70,7 +81,28 @@ class JugadoresController extends Controller
      */
     public function edit(Jugador $jugador)
     {
-        //
+        return response()->json([
+            'data' => $jugador,
+        ], 200);
+    }
+
+    
+    public function update(Request $request, Jugador $jugador)
+    {      
+        $validatedData = $request->validate([
+            'nombre' => 'required|string|max:40',
+            'apellido' => 'string|max:40',
+            'nickname' => 'string',
+        ]);
+
+       
+        $jugador->update($validatedData);
+
+        
+        return response()->json([
+            'message' => 'Jugador actualizado exitosamente',
+            'data' => $jugador,
+        ], 200);
     }
 
     /**
@@ -80,10 +112,6 @@ class JugadoresController extends Controller
      * @param  \App\Models\Jugador  $jugador
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Jugador $jugador)
-    {
-        //
-    }
 
     /**
      * Remove the specified resource from storage.

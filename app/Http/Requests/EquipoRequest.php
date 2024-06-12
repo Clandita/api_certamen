@@ -13,7 +13,7 @@ class EquipoRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,17 @@ class EquipoRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'nombre' => ['required', 'min:3', 'max:40'],
+            'descripcion' => ['string'],
+        ];
+    }
+
+    public function messages(): array
+    {
+        return[
+            'nombre.required'=> 'Indique nombre del Equipo',
+            'nombre.min'=> 'Ingrese mínimo 3 letras',
+            'nombre.max'=> 'Ingrese máximo 40 letras',
         ];
     }
 }
