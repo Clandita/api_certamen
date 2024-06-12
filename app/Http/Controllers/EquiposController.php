@@ -86,10 +86,17 @@ class EquiposController extends Controller
  * @param  \App\Models\Equipo  $equipo
  * @return \Illuminate\Http\Response
  */
-public function update(Request $request, Equipo $equipo)
+public function update(Request $request)
 {
-    
+    $equipo=Equipo::where('id',$request->id) ->first();
+    $equipo->nombre = $request->nombre;
+    $equipo->descripcion = $request->descripcion;
+    $equipo->save();
+    return $equipo;
+
 }
+
+
 
 
     /**

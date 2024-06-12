@@ -81,7 +81,11 @@ class CampeonatosController extends Controller
      */
     public function update(Request $request, Campeonato $campeonato)
     {
-        //
+        $campeonato->juego = $request->juego;
+        $campeonato->nombre = $request->nombre;
+        $campeonato->reglas = $request->reglas;
+        $campeonato->premios = $request->premios;
+        $campeonato->save();
     }
 
     /**
