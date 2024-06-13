@@ -20,6 +20,8 @@ class resultadosSeeder extends Seeder
             ['equipo_id'=>'2','partido_id'=>'1','puntos'=>'15','ganador'=>true],
             ['equipo_id'=>'1','partido_id'=>'2','puntos'=>'15','ganador'=>true],
             ['equipo_id'=>'4','partido_id'=>'2','puntos'=>'20','ganador'=>false],
+            ['equipo_id'=>'1','partido_id'=>'3','puntos'=>'15','ganador'=>false],
+            ['equipo_id'=>'4','partido_id'=>'3','puntos'=>'20','ganador'=>true],
         ]);
     }
 }

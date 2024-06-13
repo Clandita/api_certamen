@@ -21,6 +21,7 @@ class partidosSeeder extends Seeder
             ['hora' => '2024-06-01 18:00:00','jugado'=>false, 'lugar' => 'Vanguard Arena', 'campeonato_id' => '3'],
             ['hora' => '2024-06-01 20:00:00','jugado'=>false, 'lugar' => 'Estadio Rocket', 'campeonato_id' => '4'],
             ['hora' => '2024-06-01 12:00:00','jugado'=>false, 'lugar' => 'Taverna Hearthstone', 'campeonato_id' => '5'],
+            
             ]);
     }
 }

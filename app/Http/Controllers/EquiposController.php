@@ -34,18 +34,13 @@ class EquiposController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(EquipoRequest $request)
+    public function store(Request $request)
     {
-        try {
-            $equipo = new Equipo();
-            $equipo->nombre = $request->nombre;
-            $equipo->descripcion = $request->descripcion;
-            $equipo->save();
-
-            return response()->json(['message' => 'Equipo creado exitosamente', 'data' => $equipo], 201);
-        } catch (\Exception $e) {
-            return response()->json(['message' => 'Error', 'errors' => ['general' => [$e->getMessage()]]], 500);
-        }
+        $equipo = new Equipo();
+        $equipo->nombre = $request->nombre;
+        $equipo->descripcion = $request->descripcion;
+        $equipo->save();
+        return $equipo;
     }
 
     /**
