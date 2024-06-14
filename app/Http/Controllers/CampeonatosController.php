@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Campeonato;
 use Illuminate\Http\Request;
+use App\Http\Requests\CampeonatoRequest;
 
 class CampeonatosController extends Controller
 {
@@ -34,7 +35,7 @@ class CampeonatosController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CampeonatoRequest $request)
     {
         try {
             $campeonato = new Campeonato();

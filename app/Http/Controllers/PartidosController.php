@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Partido;
 use Illuminate\Http\Request;
+use App\Http\Requests\PartidoRequest;
 
 class PartidosController extends Controller
 {
@@ -39,7 +40,7 @@ class PartidosController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(PartidoRequest $request)
     {
         $partido=new Partido();
         $partido->id=$request->id;

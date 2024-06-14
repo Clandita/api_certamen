@@ -6,34 +6,24 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class CampeonatoRequest extends FormRequest
 {
-    /**
-     * Determine if the user is authorized to make this request.
-     *
-     * @return bool
-     */
     public function authorize(): bool
     {
         return true;
     }
 
-    /**
-     * Get the validation rules that apply to the request.
-     *
-     * @return array<string, mixed>
-     */
     public function rules(): array
     {
         return [
-            'nombre' => ['required', 'alpha', 'min:3', 'max:40'],
-            'juego' => ['required','string','min:3'],
-            'reglas' => ['required','string',],
-            'premios' => ['required','string']
+            'nombre' => 'required|alpha|min:3|max:40',
+            'juego' => 'required|string|min:3',
+            'reglas' => 'required|string',
+            'premios' => 'required|string',
         ];
     }
 
     public function messages(): array
     {
-        return[
+        return [
             'nombre.required'=> 'Indique nombre del campeonato',
             'nombre.alpha' => 'Ingrese solo Letras',
             'nombre.min'=> 'Ingrese mínimo 3 letras',
@@ -41,6 +31,10 @@ class CampeonatoRequest extends FormRequest
             'juego.required' => 'Indique el juego',
             'juego.string' => 'Ingrese un nombre válido para el juego',
             'juego.min' => 'Ingrese mínimo 3 letras para el juego',
+            'reglas.required' => 'Indique las reglas',
+            'reglas.string' => 'Ingrese reglas válidas',
+            'premios.required' => 'Indique los premios',
+            'premios.string' => 'Ingrese premios válidos',
         ];
     }
 }

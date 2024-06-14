@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Jugador;
 use Illuminate\Http\Request;
+use App\Http\Requests\JugadorRequest;
 
 class JugadoresController extends Controller
 {
@@ -46,7 +47,7 @@ class JugadoresController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(JugadorRequest $request)
     {
         $jugador=new Jugador();
         $jugador->nombre=$request->nombre;

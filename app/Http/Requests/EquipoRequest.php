@@ -14,13 +14,8 @@ class EquipoRequest extends FormRequest
     public function rules()
     {
         return [
-<<<<<<< Updated upstream
-            'nombre' => ['required', 'string'],
-            'descripcion' => ['required', 'string'],
-=======
-        'nombre' => ['required', 'string'],
-        'descripcion' => ['required', 'string'],
->>>>>>> Stashed changes
+            'nombre' => ['required',],
+            'descripcion' => ['required',],
         ];
     }
 

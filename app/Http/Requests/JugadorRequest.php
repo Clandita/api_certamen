@@ -24,7 +24,20 @@ class JugadorRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'nombre' => ['required',],
+            'apellido'=>['required',],
+            'nickname'=>['required',],
+            'rut'=>['required',],
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'nombre.required' => 'El nombre es requerido',
+            'apellido.required' => 'El apellido es requerido',
+            'nickname.required' => 'El nickname es requerido',
+            'rut.required' => 'el rut es requerida',
         ];
     }
 }

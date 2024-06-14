@@ -24,7 +24,20 @@ class PartidoRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'hora' => ['required',],
+            'jugado'=>['required',],
+            'lugar'=>['required',],
+            'campeonato_id'=>['required',],
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'hora.required' => 'La hora es requerido',
+            'jugado.required' => 'El Jugado es requerido',
+            'lugar.required' => 'El lugar es requerido',
+            'campeonato_id.required' => 'el campeonato es requerido',
         ];
     }
 }
