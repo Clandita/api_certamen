@@ -7,6 +7,7 @@ use App\Http\Controllers\JugadoresController;
 use App\Http\Controllers\CampeonatosController;
 use App\Http\Controllers\PartidosController;
 use App\Http\Controllers\ResultadosController;
+use App\Http\Controllers\CampeonatoEquipoController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -27,7 +28,7 @@ Route::resource('/jugadores',JugadoresController::class);
 Route::resource('/campeonatos',CampeonatosController::class);
 Route::resource('/partidos',PartidosController::class);
 Route::resource('/resultados',ResultadosController::class);
-
+Route::resource('/campeonatoequipo',CampeonatoEquipoController::class);
 
 Route::get('campeonatos/{id}/equipos', [CampeonatosController::class, 'equiposPorCampeonato']);
 
