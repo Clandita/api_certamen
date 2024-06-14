@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\CampeonatoEquipo;
+use App\Models\Equipo;
 use Illuminate\Http\Request;
 
 class CampeonatoEquipoController extends Controller
@@ -36,20 +37,15 @@ class CampeonatoEquipoController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'posicion' => 'required|integer', // Ejemplo de validación para posición
-            'equipo_id' => 'required|exists:equipos,id', // Valida que equipo_id exista en la tabla equipos
-            'campeonato_id' => 'required|exists:campeonatos,id', // Valida que campeonato_id exista en la tabla campeonatos
-        ]);
-    
         $campeonatoEquipo = new CampeonatoEquipo();
         $campeonatoEquipo->posicion = $request->posicion;
         $campeonatoEquipo->equipo_id = $request->equipo_id;
         $campeonatoEquipo->campeonato_id = $request->campeonato_id;
+        
         $campeonatoEquipo->save();
-    
-        return response()->json($campeonatoEquipo, 201);
+        return $campeonatoEquipo;
     }
+
     
     /**
      * Display the specified resource.
@@ -59,7 +55,7 @@ class CampeonatoEquipoController extends Controller
      */
     public function show(CampeonatoEquipo $campeonatoEquipo)
     {
-        //
+        return $campeonatoEquipo;
     }
 
     /**
@@ -94,5 +90,15 @@ class CampeonatoEquipoController extends Controller
     public function destroy(CampeonatoEquipo $campeonatoEquipo)
     {
         //
+    }
+    public function equiposNoEnCampeonato($campeonatoId)
+    {
+        // Obtén los IDs de los equipos que ya están en el campeonato
+        $equiposEnCampeonato = CampeonatoEquipo::where('campeonato_id', $campeonatoId)->pluck('equipo_id')->toArray();
+
+        // Obtén los equipos que no están en el campeonato
+        $equiposNoEnCampeonato = Equipo::whereNotIn('id', $equiposEnCampeonato)->get();
+
+        return response()->json($equiposNoEnCampeonato);
     }
 }
