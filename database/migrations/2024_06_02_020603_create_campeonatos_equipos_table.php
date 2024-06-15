@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('campeonatos_equipos', function (Blueprint $table) {
-            $table->tinyInteger('posicion');
+            $table->tinyInteger('posicion')->default(0);
             $table->unsignedBigInteger('equipo_id');
             $table->foreign('equipo_id')->references('id')->on('equipos');
             $table->unsignedBigInteger('campeonato_id');

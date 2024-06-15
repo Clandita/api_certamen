@@ -47,7 +47,7 @@ class JugadoresController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(JugadorRequest $request)
+    public function store(Request $request)
     {
         $jugador=new Jugador();
         $jugador->nombre=$request->nombre;

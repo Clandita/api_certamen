@@ -41,7 +41,14 @@ class ResultadosController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $resultado = new Resultado();
+        $resultado->equipo_id= $request->equipo_id;
+        $resultado->partido_id = $request->partido_id;
+        $resultado->puntos = $request->puntos ?? 0;
+        $resultado->ganador = $request->ganador ?? false;
+
+        $resultado->save();
+        return $resultado;
     }
 
     /**

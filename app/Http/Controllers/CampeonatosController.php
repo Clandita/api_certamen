@@ -35,7 +35,7 @@ class CampeonatosController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(CampeonatoRequest $request)
+    public function store(Request $request)
     {
         try {
             $campeonato = new Campeonato();

@@ -17,12 +17,12 @@ Route::resource('/resultados', ResultadosController::class);
 Route::resource('/campeonatoequipo', CampeonatoEquipoController::class);
 
 Route::get('campeonatos/{id}/equipos', [CampeonatosController::class, 'equiposPorCampeonato']);
-
-// Nueva ruta para obtener los equipos que no están en un campeonato
 Route::get('campeonatos/{id}/equipos/no', [CampeonatoEquipoController::class, 'equiposNoEnCampeonato']);
 
 Route::put('/jugadores', [JugadoresController::class, 'update']);
 Route::put('/equipos', [EquiposController::class, 'update']);
 Route::put('/campeonatos', [CampeonatosController::class, 'update']);
+Route::put('/partidos', [PartidosController::class, 'update']);
 
 Route::delete('/jugadores', [JugadoresController::class, 'destroy']);
+Route::delete('/partidos', [PartidosController::class, 'destroy']);

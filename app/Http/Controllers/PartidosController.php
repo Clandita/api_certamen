@@ -40,7 +40,7 @@ class PartidosController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(PartidoRequest $request)
+    public function store(Request $request)
     {
         $partido=new Partido();
         $partido->id=$request->id;
@@ -84,7 +84,14 @@ class PartidosController extends Controller
      */
     public function update(Request $request, Partido $partido)
     {
-        //
+        $partido->id = $request->id;
+        $partido->hora = $request->hora ?? $partido->hora; 
+        $partido->jugado = $request->jugado ?? $partido->jugado; 
+        $partido->lugar = $request->lugar;
+        $partido->campeonato_id = $request->campeonato_id ?? $partido->campeonato_id; 
+        
+        $partido->save();
+        return response()->json($partido);
     }
 
     /**
@@ -93,8 +100,8 @@ class PartidosController extends Controller
      * @param  \App\Models\Partido  $partido
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Partido $partido)
+    public function destroy(Request $request)
     {
-        return $piloto->delete();
+        return $partido->delete();
     }
 }

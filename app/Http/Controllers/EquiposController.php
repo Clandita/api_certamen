@@ -35,7 +35,7 @@ class EquiposController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(EquipoRequest $request)
+    public function store(Request $request)
     {
         $equipo = new Equipo();
         $equipo->nombre = $request->nombre;

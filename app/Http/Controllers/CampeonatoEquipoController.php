@@ -38,12 +38,12 @@ class CampeonatoEquipoController extends Controller
     public function store(Request $request)
     {
         $campeonatoEquipo = new CampeonatoEquipo();
-        $campeonatoEquipo->posicion = $request->posicion;
+        $campeonatoEquipo->posicion = $request->posicion ?? 0;
         $campeonatoEquipo->equipo_id = $request->equipo_id;
         $campeonatoEquipo->campeonato_id = $request->campeonato_id;
         
         $campeonatoEquipo->save();
-        return $campeonatoEquipo;
+        return response()->json($campeonatoEquipo);
     }
 
     
